@@ -11,17 +11,17 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 
 import PyPDF2
-from langchain.docstore.document import Document
+from langchain_core.documents import Document
 #from langchain_community.vectorstores import Chroma
 from langchain_chroma import Chroma
 #from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain.chains import create_retrieval_chain
-from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain.text_splitter import TokenTextSplitter
-from langchain.schema import HumanMessage, AIMessage
-from langchain.chains.history_aware_retriever import create_history_aware_retriever
+from langchain_classic.chains.combine_documents import create_stuff_documents_chain
+from langchain_classic.chains import create_retrieval_chain
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_classic.text_splitter import TokenTextSplitter
+from langchain_core.messages import HumanMessage, AIMessage
+from langchain_classic.chains.history_aware_retriever import create_history_aware_retriever
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 

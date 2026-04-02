@@ -1,0 +1,65 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 3603 >>
+stream
+BT /F2 20 Tf 1 0 0 1 54 742 Tm (Clinical RAG Chatbot - App Summary) Tj ET
+BT /F2 13 Tf 1 0 0 1 54 714 Tm (WHAT IT IS) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 696 Tm (A Retrieval-Augmented Generation chatbot for answering questions from clinical PDF content.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 680 Tm (The repo combines a React chat UI with a Flask/LangChain backend, Chroma retrieval, Gemini, and MongoDB.) Tj ET
+BT /F2 13 Tf 1 0 0 1 54 658 Tm (WHO IT'S FOR) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 640 Tm (Not explicitly stated in repo; likely clinicians, researchers, or analysts querying clinical reports.) Tj ET
+BT /F2 13 Tf 1 0 0 1 54 618 Tm (WHAT IT DOES) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 600 Tm (- Accepts chat questions in a React single-page interface with sidebar, navbar, and message input.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 584 Tm (- Sends each prompt to a Flask POST /query API and returns generated answers to the chat window.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 568 Tm (- Extracts text from a local clinical PDF, wraps it as LangChain documents, and token-splits into chunks.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 552 Tm (- Builds or reuses a persisted Chroma vector index using HuggingFace all-MiniLM-L6-v2 embeddings.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 536 Tm (- Uses a history-aware retriever plus Gemini chat model to answer with retrieved clinical context.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 520 Tm (- Stores query, response, serialized chat history, and UTC timestamp in MongoDB.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 504 Tm (- Reuses cached vector data under cache/chroma_index when available.) Tj ET
+BT /F2 13 Tf 1 0 0 1 54 482 Tm (HOW IT WORKS) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 464 Tm (Frontend: React 19 + Vite app in client/src; App.jsx manages message state and calls http://127.0.0.1:5000/query.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 448 Tm (Backend API: Flask app in server/main.py exposes /query with CORS enabled.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 432 Tm (Document pipeline: server/main.py reads clinical.pdf with PyPDF2, creates Document objects, and token-splits them.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 416 Tm (Retrieval layer: Chroma persists embeddings in cache/chroma_index; retriever uses similarity search with k=10.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 400 Tm (Generation: LangChain history-aware retriever + stuff-documents chain call ChatGoogleGenerativeAI.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 384 Tm (Persistence: MongoDB clinical.rag_clinical stores each query/response/chat_history/timestamp record.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 368 Tm (Data flow: user prompt -> React fetch -> Flask /query -> retriever + Gemini -> MongoDB insert -> JSON response -> UI.) Tj ET
+BT /F2 13 Tf 1 0 0 1 54 346 Tm (HOW TO RUN) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 328 Tm (1. Backend prereqs in README: Python 3.8+, Node.js 16+, MongoDB Atlas or local MongoDB.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 312 Tm (2. Set MONGODB_URI and GEMINI_API_KEY for server/main.py. Python package install command: Not found in repo.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 296 Tm (3. From /server, run main.py to start Flask on localhost:5000. Exact launch command: Not found in repo.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 280 Tm (4. From /client, run npm install, then npm run dev using scripts in client/package.json.) Tj ET
+BT /F1 11 Tf 1 0 0 1 54 264 Tm (5. Open the Vite URL and send queries; the frontend posts to http://127.0.0.1:5000/query.) Tj ET
+BT /F1 9 Tf 1 0 0 1 54 248 Tm (Evidence: README.md, server/main.py, client/package.json, client/src/App.jsx, client/src/components/*) Tj ET
+BT /F1 9 Tf 1 0 0 1 54 236 Tm (Repo gaps marked above as Not found in repo where setup details are missing.) Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000321 00000 n 
+0000000396 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+4051
+%%EOF
